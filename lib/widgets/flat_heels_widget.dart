@@ -15,14 +15,14 @@ class FlatHeelsWidget extends StatelessWidget {
         children: [
           Image.asset(
             "assets/flat_heels/bar.png",
-            height: 200,
+            height: double.infinity,
             fit: BoxFit.fill,
           ),
-          
+
           Expanded(
             child: Container(
               height: 170,
-              
+
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 234, 234, 234),
               ),
@@ -30,7 +30,7 @@ class FlatHeelsWidget extends StatelessWidget {
                 children: [
                   Positioned(
                     left: -10,
-    
+
                     child: Padding(
                       padding: const EdgeInsets.all(0),
                       child: Image.asset('assets/flat_heels/particle.png'),
@@ -58,6 +58,8 @@ class FlatHeelsWidget extends StatelessWidget {
                         ),
                         Text(
                           'Stand a chance to get rewarded',
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                           style: TextStyle(fontSize: 12),
                         ),
                         const SizedBox(height: 8),
@@ -65,12 +67,7 @@ class FlatHeelsWidget extends StatelessWidget {
                           name: 'Visit Now ',
                           icon: Icons.arrow_forward,
                           boxColor: Colors.red,
-                          textColor: const Color.fromARGB(
-                            255,
-                            255,
-                            255,
-                            255,
-                          ),
+                          textColor: const Color.fromARGB(255, 255, 255, 255),
                           iconColor: Colors.white,
                           fontWeight: FontWeight.normal,
                         ),

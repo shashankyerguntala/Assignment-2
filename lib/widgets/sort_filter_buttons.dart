@@ -21,13 +21,14 @@ class SortFilterButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: boxColor,
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: const Color.fromARGB(255, 239, 239, 239)),
       ),
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             name,
@@ -37,7 +38,7 @@ class SortFilterButton extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 4),
-          Icon(icon, size: 20, color: iconColor),
+          Icon(icon, color: iconColor),
         ],
       ),
     );

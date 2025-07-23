@@ -2,11 +2,16 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shopping_app/widgets/custom_bottom_navigation.dart';
+import 'package:shopping_app/widgets/deals_banner.dart';
 import 'package:shopping_app/widgets/all_features_widget.dart';
 import 'package:shopping_app/widgets/carousel_slider.dart';
 import 'package:shopping_app/widgets/deal_of_the_day.dart';
 import 'package:shopping_app/widgets/flat_heels_widget.dart';
+import 'package:shopping_app/widgets/hot_summer.dart';
 import 'package:shopping_app/widgets/sort_filter_buttons.dart';
+import 'package:shopping_app/widgets/sponsered.dart';
+import 'package:shopping_app/widgets/trending_banner.dart';
 import 'package:shopping_app/widgets/trending_products.dart';
 
 class HomePage extends StatelessWidget {
@@ -15,7 +20,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
       backgroundColor: const Color.fromARGB(249, 245, 245, 245),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -43,12 +47,13 @@ class HomePage extends StatelessWidget {
         ],
       ),
 
+      //! Search bar
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.only(left: 16.0, right: 16),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: 110),
+              const SizedBox(height: 20),
               TextField(
                 decoration: InputDecoration(
                   filled: true,
@@ -65,9 +70,11 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 15),
+
+              //! all featured text
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const SizedBox(width: 15),
                   Text(
                     'All Featured',
                     style: GoogleFonts.montserrat(
@@ -75,27 +82,33 @@ class HomePage extends StatelessWidget {
                       fontSize: 18,
                     ),
                   ),
-                  const SizedBox(width: 80),
-                  SortFilterButton(
-                    iconColor: Colors.black,
-                    name: 'sort',
-                    icon: Icons.swap_vert,
-                    boxColor: Colors.white,
-                    textColor: Colors.black,
-                    fontWeight: FontWeight.normal,
-                  ),
-                  const SizedBox(width: 8),
-                  SortFilterButton(
-                    fontWeight: FontWeight.normal,
-                    iconColor: Colors.black,
-                    textColor: Colors.black,
-                    boxColor: Colors.white,
-                    name: 'filter',
-                    icon: Icons.filter_alt_outlined,
+
+                  Row(
+                    children: [
+                      SortFilterButton(
+                        iconColor: Colors.black,
+                        name: 'sort',
+                        icon: Icons.swap_vert,
+                        boxColor: Colors.white,
+                        textColor: Colors.black,
+                        fontWeight: FontWeight.normal,
+                      ),
+                      const SizedBox(width: 8),
+                      SortFilterButton(
+                        fontWeight: FontWeight.normal,
+                        iconColor: Colors.black,
+                        textColor: Colors.black,
+                        boxColor: Colors.white,
+                        name: 'filter',
+                        icon: Icons.filter_alt_outlined,
+                      ),
+                    ],
                   ),
                 ],
               ),
               const SizedBox(height: 20),
+
+              //! all featured cards
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -104,8 +117,6 @@ class HomePage extends StatelessWidget {
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: SizedBox(
-                    height: 110,
-
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -139,6 +150,8 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 15),
+
+              //! carousel slider
               CarouselSlider(
                 items: [CustomCarousel(), CustomCarousel(), CustomCarousel()],
                 options: CarouselOptions(
@@ -149,7 +162,7 @@ class HomePage extends StatelessWidget {
                   autoPlay: true,
                 ),
               ),
-
+              //! carousel dots
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
@@ -162,6 +175,7 @@ class HomePage extends StatelessWidget {
                   ),
                   Text(
                     '●',
+                    
                     style: TextStyle(
                       fontSize: 24,
                       color: Color.fromARGB(255, 252, 146, 181),
@@ -177,66 +191,8 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 10),
-              Container(
-                height: 80,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 10.0,
-                    vertical: 12,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            'Deal of the Day',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontSize: 18,
-                            ),
-                          ),
-                          const SizedBox(height: 5),
-                          Row(
-                            children: const [
-                              Icon(
-                                Icons.access_alarm,
-                                color: Colors.white,
-                                size: 18,
-                              ),
-                              SizedBox(width: 5),
-                              Text(
-                                '22h 55m 20s remaining',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                  fontSize: 12,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      SortFilterButton(
-                        name: 'View all',
-                        icon: Icons.arrow_forward,
-                        boxColor: Colors.transparent,
-                        textColor: Colors.white,
-                        iconColor: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              //! deals banner
+              DealsBanner(),
               const SizedBox(height: 15),
               Stack(
                 children: [
@@ -347,108 +303,49 @@ class HomePage extends StatelessWidget {
                 ),
               ),
 
-              //! FLAT AND HEELS START
+              //! flat and heels
               const SizedBox(height: 15),
               FlatHeelsWidget(),
 
-              //! trending products
+              //! trending banner
               const SizedBox(height: 15),
-              Container(
-                height: 80,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(253, 110, 135, 1),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(11),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            'Trending Products',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontSize: 18,
-                            ),
-                          ),
-                          const SizedBox(height: 5),
-                          Row(
-                            children: const [
-                              Icon(
-                                Icons.calendar_month,
-                                color: Colors.white,
-                                size: 18,
-                              ),
-                              SizedBox(width: 5),
-                              Text(
-                                'Last Date 29/02/22',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                  fontSize: 12,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      SortFilterButton(
-                        name: 'View all',
-                        icon: Icons.arrow_forward,
-                        boxColor: Colors.transparent,
-                        textColor: Colors.white,
-                        iconColor: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              TrendingBanner(),
 
               //! trending cards start
               const SizedBox(height: 10),
               Stack(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      height: 254,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          TrendingProducts(
-                            mainImagePath: 'assets/trending_products/1.png',
-                            label:
-                                'IWC Schaffhausen2021 Pilots Watch "SIHH 2019" 44mm',
-                            mrp: '1599',
-                            price: '650',
-                            discount: '60%',
-                          ),
-                          TrendingProducts(
-                            mainImagePath: 'assets/trending_products/2.png',
-                            label: 'Labbin White Sneakers For Men and Female',
-                            mrp: '1250',
-                            price: '650',
-                            discount: '70%',
-                          ),
-                          TrendingProducts(
-                            mainImagePath: 'assets/trending_products/3.png',
-                            label: 'Mammon Womens Handbag(Set of 3, Beige)',
-                            mrp: '1999',
-                            price: '750',
-                            discount: '60%',
-                          ),
-                        ],
-                      ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    height: 254,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        TrendingProducts(
+                          mainImagePath: 'assets/trending_products/1.png',
+                          label:
+                              'IWC Schaffhausen2021 Pilots Watch "SIHH 2019" 44mm',
+                          mrp: '1599',
+                          price: '650',
+                          discount: '60%',
+                        ),
+                        TrendingProducts(
+                          mainImagePath: 'assets/trending_products/2.png',
+                          label: 'Labbin White Sneakers For Men and Female',
+                          mrp: '1250',
+                          price: '650',
+                          discount: '70%',
+                        ),
+                        TrendingProducts(
+                          mainImagePath: 'assets/trending_products/3.png',
+                          label: 'Mammon Womens Handbag(Set of 3, Beige)',
+                          mrp: '1999',
+                          price: '750',
+                          discount: '60%',
+                        ),
+                      ],
                     ),
                   ),
                   Positioned(
@@ -463,171 +360,18 @@ class HomePage extends StatelessWidget {
               ),
 
               //! hot summer
-              const SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+              const SizedBox(height: 10),
+              HotSummer(),
 
-                    color: Colors.white,
-                  ),
-                  width: double.infinity,
-                  height: 295,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        "assets/hot_summer.png",
-                        height: 210,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
-                      ),
-                      const SizedBox(height: 5),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 8),
-                        child: Text(
-                          "New Arrivals ",
-                          style: GoogleFonts.montserrat(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-
-                      Padding(
-                        padding: const EdgeInsets.only(left: 8),
-                        child: Row(
-                          children: [
-                            Text(
-                              "Summer’ 25 Collections ",
-                              style: GoogleFonts.montserrat(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                            SizedBox(width: 48),
-                            SortFilterButton(
-                              name: 'view all',
-                              icon: Icons.arrow_forward,
-                              boxColor: Color.fromRGBO(248, 55, 88, 1),
-                              textColor: Colors.white,
-                              iconColor: Colors.white,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-
-              //!sponserd
+              //!sponsered
               const SizedBox(height: 15),
-              Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.white,
-                  ),
-
-                  height: 400,
-
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20, top: 8),
-                        child: Text(
-                          'Sponsored',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-
-                      SizedBox(height: 10),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20),
-                        child: ClipRRect(
-                          child: Image.asset(
-                            'assets/shoes.png',
-                            width: 400,
-                            height: 300,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 12),
-                              child: Text(
-                                "Up to 50% Off",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            Spacer(),
-                            Icon(Icons.arrow_forward_ios, size: 16),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              Sponsered(),
+              const SizedBox(height: 20),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.white,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(Icons.home, color: Colors.red),
-                Text("Home", style: TextStyle(color: Colors.red)),
-              ],
-            ),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(Icons.favorite_border, color: Colors.black),
-                Text("Wishlist", style: TextStyle(color: Colors.black)),
-              ],
-            ),
-
-            SizedBox(width: 40),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(Icons.search, color: Colors.black),
-                Text("Search", style: TextStyle(color: Colors.black)),
-              ],
-            ),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(Icons.settings, color: Colors.black),
-                Text("Setting", style: TextStyle(color: Colors.black)),
-              ],
-            ),
-          ],
-        ),
-      ),
-
+      bottomNavigationBar: CustomBottomNavigation(),
       floatingActionButton: FloatingActionButton(
         shape: CircleBorder(),
         onPressed: () {},

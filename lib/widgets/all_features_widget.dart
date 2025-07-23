@@ -12,6 +12,11 @@ class AllFeaturesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [Image.asset(imagePath, height: 76), Text(label)]);
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Column(
+        children: [Image.asset(imagePath, height: 76), Text(label)],
+      ),
+    );
   }
 }

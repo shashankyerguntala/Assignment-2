@@ -6,15 +6,16 @@ class CustomCarousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return Stack(
       children: [
-        SizedBox(
-          height: 250,
-          child: Image.asset('assets/discount.png', fit: BoxFit.contain),
+        Image.asset(
+          'assets/discount.png',
+          fit: BoxFit.fill,
+          width: screenWidth,
         ),
-        Positioned(
-          top: 60,
-          left: 20,
+        Padding(
+          padding: const EdgeInsets.only(top: 30, left: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -36,8 +37,7 @@ class CustomCarousel extends StatelessWidget {
                 'All colours',
                 style: TextStyle(fontSize: 16, color: Colors.white),
               ),
-              const SizedBox(height: 5),
-
+              const SizedBox(height: 12),
               SortFilterButton(
                 fontWeight: FontWeight.bold,
                 iconColor: Colors.white,
