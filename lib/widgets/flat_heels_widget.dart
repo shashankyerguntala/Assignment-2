@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:shopping_app/widgtes/sort_filter_buttons.dart';
+import 'package:shopping_app/widgets/sort_filter_buttons.dart';
 
 class FlatHeelsWidget extends StatelessWidget {
   const FlatHeelsWidget({super.key});

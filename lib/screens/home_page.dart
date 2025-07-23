@@ -2,12 +2,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shopping_app/widgtes/all_features_widget.dart';
-import 'package:shopping_app/widgtes/carousel_slider.dart';
-import 'package:shopping_app/widgtes/deal_of_the_day.dart';
-import 'package:shopping_app/widgtes/flat_heels_widget.dart';
-import 'package:shopping_app/widgtes/sort_filter_buttons.dart';
-import 'package:shopping_app/widgtes/trending_products.dart';
+import 'package:shopping_app/widgets/all_features_widget.dart';
+import 'package:shopping_app/widgets/carousel_slider.dart';
+import 'package:shopping_app/widgets/deal_of_the_day.dart';
+import 'package:shopping_app/widgets/flat_heels_widget.dart';
+import 'package:shopping_app/widgets/sort_filter_buttons.dart';
+import 'package:shopping_app/widgets/trending_products.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -240,7 +240,6 @@ class HomePage extends StatelessWidget {
               const SizedBox(height: 15),
               Stack(
                 children: [
-
                   SizedBox(
                     height: 280,
                     child: ListView(
@@ -464,14 +463,13 @@ class HomePage extends StatelessWidget {
               ),
 
               //! hot summer
-
               const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                
+
                     color: Colors.white,
                   ),
                   width: double.infinity,
@@ -496,7 +494,7 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
                       ),
-                
+
                       Padding(
                         padding: const EdgeInsets.only(left: 8),
                         child: Row(
@@ -526,7 +524,6 @@ class HomePage extends StatelessWidget {
               ),
 
               //!sponserd
-
               const SizedBox(height: 15),
               Padding(
                 padding: const EdgeInsets.all(4.0),
@@ -535,9 +532,9 @@ class HomePage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                     color: Colors.white,
                   ),
-                  
+
                   height: 400,
-                
+
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -551,7 +548,7 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
                       ),
-                
+
                       SizedBox(height: 10),
                       Padding(
                         padding: const EdgeInsets.only(left: 20),

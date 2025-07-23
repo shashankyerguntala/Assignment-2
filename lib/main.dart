@@ -8,18 +8,14 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Shoppping App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        textTheme: GoogleFonts.montserratTextTheme(),
-        
-      ),
+      theme: ThemeData(textTheme: GoogleFonts.montserratTextTheme()),
       home: const HomePage(),
     );
   }
 }
-
